@@ -59,7 +59,7 @@ const Cart=()=>{
                         >Почистить корзину</button>
                         <button
                         className='btn btn-primary m-2'
-                        ></button>
+                        >Купить</button>
                 </div>
             </div>
         </section>
