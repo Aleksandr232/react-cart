@@ -12,7 +12,7 @@ const Cart=()=>{
         removeItem,
         emptyCart,
 }=useCart();
-    if(isEmpty) return <h1 className='text-center'>dfb</h1>
+    if(isEmpty) return <h1 className='text-center'>Покупки</h1>
     return(
         <section className='py-4 container'>
             <div className='row justify-content-center'>
@@ -27,13 +27,39 @@ const Cart=()=>{
                                                 <img src={item.img} style={{height:'6rem'}}  />
                                             </td>
                                             <td>{item.title}</td>
-                                            <td>{item.price}</td>
+                                            <td>{item.price}₽</td>
                                             <td>Итог ({item.quantity})</td>
+                                            <td>
+                                                <button
+                                                 className='btn btn-info ms-2'
+                                                 onClick={()=>updateItemQuantity(item.id, item.quantity -1)}
+                                                 >-</button>
+                                                <button 
+                                                className='btn btn-info ms-2'
+                                                onClick={()=>updateItemQuantity(item.id, item.quantity +1)}
+                                                >+</button>
+                                                <button
+                                                 className='btn btn-danger ms-2'
+                                                 onClick={()=>removeItem(item.id)}
+                                                 >Удалить</button>
+                                            </td>
                                         </tr>
                                     )
                                 })}
                             </tbody>
                         </table>
+                </div>
+                <div className='col-auto ms-auto'>
+                         <h2>Сумма:({cartTotal})₽</h2>           
+                </div>
+                <div className='col-auto'>
+                        <button 
+                        className='btn btn-danger m-2'
+                        onClick={()=>emptyCart()}
+                        >Почистить корзину</button>
+                        <button
+                        className='btn btn-primary m-2'
+                        ></button>
                 </div>
             </div>
         </section>
