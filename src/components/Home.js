@@ -5,12 +5,12 @@ import data from './data'
 const Home=()=>{
     return(
         <div>
-            <h1 className='text-center mt-3'>All items</h1>
+            <h1 className='text-center mt-3'>Игры</h1>
             <section className='py-4 container'>
                 <div className='row justify-content-center'>
                     {data.productData.map((item, index)=>{
                         return(
-                            <ItemCard img='' title='title' desc='desc'/>
+                            <ItemCard img={item.img} title={item.title} desc={item.desc} price={item.price}/>
                         )
                     })}
 
